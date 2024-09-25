@@ -8,6 +8,10 @@ class TaskForm(forms.ModelForm):
         queryset=Tag.objects.prefetch_related(),
         widget=forms.CheckboxSelectMultiple,
     )
+    deadline = forms.DateTimeField(
+        required=False,
+        widget=forms.DateTimeInput(attrs={"type": "datetime-local"})
+    )
 
     class Meta:
         model = Task
