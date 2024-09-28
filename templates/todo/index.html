@@ -33,7 +33,12 @@
       
       
       </div>
-      <p>Created: {{ task.created_at }}</p>
+        <div style="display: flex">
+          <p>Created: {{ task.created_at }}</p>
+          {% if task.is_done %}
+            <p style="color: darkred">Deadline: {{ task.deadline }}</p>
+          {% endif %}
+        </div>
       <h5>
           Tags: 
         {% if task.tags.all %}

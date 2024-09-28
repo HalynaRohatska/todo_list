@@ -37,6 +37,7 @@ def toggle_task_status(request, pk):
     task = get_object_or_404(Task, pk=pk)
     task.is_done = not task.is_done
     task.save()
+
     return redirect(request.META.get('HTTP_REFERER', 'task_list'))
 
 
@@ -64,3 +65,4 @@ class TagsDeleteView(generic.DeleteView):
     model = Tag
     template_name = "todo/tag_confirm_delete.html"
     success_url = reverse_lazy("todo/tags_list")
+
